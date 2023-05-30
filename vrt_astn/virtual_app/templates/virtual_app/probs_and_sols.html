@@ -1,0 +1,26 @@
+{%extends "virtual_app/layout.html"%}
+{%block body%}
+{%load virtual_assistant_tags%}
+<div class="container">
+    <ul>
+        {%for problem, frequency in problems.items%}
+            <li><b>[{{frequency|percentage}}%] 
+                    <a href="problem/{{problem}}">{{problem}}</a>
+                </b>:
+                <ul>
+                    {%for prob, sols in solutions.items%}
+                        {%ifequal prob problem%}
+                            {%for solution in sols%}
+                            <li>
+                                {{solution}}
+                            </li>
+                            {%endfor%}
+                        {%endifequal%}
+                    {%endfor%}
+                </ul>
+            </li>
+        {%endfor%}
+    </ul>
+</div>
+
+{%endblock body%}

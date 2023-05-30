@@ -1,0 +1,26 @@
+{%extends "virtual_app/layout.html"%}
+{%block body%}
+{%load virtual_assistant_tags%}
+
+<div class="container">
+    <h3>
+        Le nostre statistiche riguardo: <b>{{sym_to_probs.0.symptom.name}}</b>
+    </h3>
+    <ul>
+        {%for sym_to_prob in sym_to_probs%}
+            <li>
+                {{sym_to_prob}}
+            </li>
+        {%endfor%}
+    </ul>
+    <br>
+    <ul>
+        {%for prob_to_sym in prob_to_syms%}
+            <li>
+                {{prob_to_sym}}
+            </li>
+        {%endfor%}
+    </ul>
+</div>
+
+{%endblock body%}

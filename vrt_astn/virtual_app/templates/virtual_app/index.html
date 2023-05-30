@@ -1,0 +1,14 @@
+{%extends "virtual_app/layout.html"%}
+{%block body%}
+    <div class="container">
+        <form action="symptom_analysys" method="post">
+            {%csrf_token%}
+            {%for symptom in symptoms%}
+                <input type="checkbox" name="{{symptom}}">
+                <a href="symptom/{{symptom.name}}">{{symptom}}</a>
+                <br>
+            {%endfor%}
+            <button class="btn btn-primary" type="submit">Conferma</button>
+        </form>
+    </div>
+{%endblock body%}
